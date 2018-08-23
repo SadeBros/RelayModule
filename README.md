@@ -133,5 +133,7 @@ If we have those connections, we need to set the Relay Module's pins as:<br>
 </table>
 <a name="title4"></a>
 ## 4. Talk Is Cheap, Show Me The Code
-![RelayModuleExample](Photos/Talk_Is_Cheap_Show_Me_The_Code.png)<br><br><br>
+<br>
+![RelayModuleExample](Photos/Talk_Is_Cheap_Show_Me_The_Code.png)
+<br><br><br>
 

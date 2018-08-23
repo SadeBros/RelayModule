@@ -1,7 +1,18 @@
+# Table of contents
+0. [What is RelayModule Library? If I use it, how easier life will be ?](#title0)
+1. [Adding RelayModule Library to the Arduino Libraries Folder](#title1)
+2. [Importing RelayModule Library to the Arduino Project Source Code](#title2)
+3. [How to use RelayModule Library ?](#title3)
+      1. [Creating RelayModule Instance](#title3sub1)
+      2. [Setting Pins and Modes of Relays](#title3sub2)
+      3. [All Functions of RelayModule](#title3sub3)
+4. [Talk Is Cheap, Show Me The Code](#title4)
+
 # RelayModule Library for Arduino
 ![RelayModule](Photos/RelayModule.gif)<br><br><br>
 
-## O. What is RelayModule Library? If I use it, how easier life will be ?
+<a name="title0"></a>
+## O. What is RelayModule Library? If I use it, how easier life will be ? 
 If you have made some Arduino project with Relay Modules, you probably wrote some **scattered code** for relays.<br>
 
 **Scattered Code Example 1:** You should initalize all the pins and modes for each relay.<br>
@@ -36,6 +47,7 @@ You can create RelayModule instance in your Arduino source code, and **initalize
 Without thinking about "**Should I write LOW or HIGH to activate it?**", you will make relays activate or deactivate easily.<br>
 <br>
 <br>
+<a name="title1"></a>
 ## 1. Adding RelayModule Library to the Arduino Libraries Folder
 After downloading RelayModule folder, you should place it to the **libraries** folder which should be located in the Arduino folder.
 <br>
@@ -44,6 +56,7 @@ For me, this libraries folder is located in: <br>
 **/Users/safakakinci/Documents/Arduino/libraries/RelayModule** <br>
 ![Adding_RelayModule_Library](Photos/Adding_RelayModule_Library_To_The_Arduino_Libraries_Folder.png)<br><br><br>
 <br><br><br>
+<a name="title2"></a>
 ## 2. Importing RelayModule Library to the Arduino Project Source Code
 On the menu bar, you are going to see **Include Library** which is located under the **Sketch** tab.<br>
 Click **RelayModule** which is at the bottom of **Include Library** pane.<br>
@@ -54,12 +67,15 @@ Click **RelayModule** which is at the bottom of **Include Library** pane.<br>
 After clicking it, those two lines below automatically will be added to the source code.<br>
 ![Importing_RelayModule_Library](Photos/Importing_RelayModule_Library_To_The_Arduino_Source_Code_2.png)<br><br><br>
 
+<a name="title3"></a>
 ## 3. How to use RelayModule Library ?
+<a name="title3sub1"></a>
 ### 3.1 Creating RelayModule Instance
 `RelayModule module(4, LOW);`<br>
 We have specified that there are **4 relays** on this Relay Module and it is working with **LOW** logic.<br>
 Working with **LOW logic** specifies that **relays will be activated** when `digitalWrite(pin, LOW)` is executed.<br>
 <br>
+<a name="title3sub2"></a>
 ### 3.2 Setting Pins and Modes of Relays
 **module** which we have created above(3.1) has 4 relays. We should set pin number and pin mode for each relay.<br>
 As an example, look at the figure below! **Arduino Uno and 4 Relay Module are connected.**<br>
@@ -76,7 +92,7 @@ If we have those connections, we need to set the Relay Module's pins as:<br>
 **setPinNumber(5)** specifies that relay is connected with Arduino's **Digital5** pin.<br>
 **setPinMode(OUTPUT)** specifies that Arduino's **Digital5** pin will be used on **OUTPUT** mode.<br>
 <br>
-
+<a name="title3sub3"></a>
 ### 3.3 All Functions of RelayModule
 
 <table>
@@ -115,7 +131,7 @@ If we have those connections, we need to set the Relay Module's pins as:<br>
     </tr>
     
 </table>
-
-## 4 Talk Is Cheap, Show Me The Code
+<a name="title4"></a>
+## 4. Talk Is Cheap, Show Me The Code
 ![RelayModuleExample](Photos/Talk_Is_Cheap_Show_Me_The_Code.png)<br><br><br>
 

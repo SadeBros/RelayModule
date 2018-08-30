@@ -10,17 +10,18 @@ void setup() {
   module[3].setPinNumber(3).setPinMode(OUTPUT);   //  3rd relay (IN3) is connected to the Arduino's Digital3 pin. The yellow wire on the photo.
   module[4].setPinNumber(2).setPinMode(OUTPUT);   //  4th relay (IN4) is connected to the Arduino's Digital2 pin. The orange wire on the photo.
 
-  module.deactiveAll();         //  In the beginning, it is a good habit to tell the system what will it do. Assume that, here, we turned off all the lights.
+  module.deactivateAll();         //  In the beginning, it is a good habit to tell the system what will it do. Assume that, here, we turned all the lights off.
 }
 
 void loop() {
 
   for (int relayNumber = 1; relayNumber <= module.getChannelNumber(); relayNumber++)
   {
-    module.active( relayNumber );
+    module.activate( relayNumber );
     ExplainRelayModuleStatus( module.getStatus() );
+    ExplainEachRelayStatus();
     delay(1000);
-    module.deactive( relayNumber );
+    module.deactivate( relayNumber );
   }
 }
 
@@ -43,4 +44,13 @@ void ExplainRelayModuleStatus(int relayModuleStatus )
   if( relayModuleStatus & Relay3Mask )  Serial.println("Relay3 is active");
   if( relayModuleStatus & Relay2Mask )  Serial.println("Relay2 is active");
   if( relayModuleStatus & Relay1Mask )  Serial.println("Relay1 is active");
+}
+
+//  Instead of getting the status of relay module as integer and mask it to decide which relay is active and which is not,
+//    you can simply learn the status of each relay by " module[ relayNumber ].getStatus() ".   ( relayNumber should NOT be ZERO. )
+void ExplainEachRelayStatus()
+{
+    for(int relayNumber=1; relayNumber <= module.getChannelNumber(); relayNumber++) //  relayNumber MUST start from 0 (zero).
+      if( module[ relayNumber ].getStatus() )
+        Serial.println("Relay " + String(relayNumber) + " is active.");
 }

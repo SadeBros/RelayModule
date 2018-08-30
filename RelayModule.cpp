@@ -3,19 +3,19 @@
 //Activates specified relay in the "Relays" and sets the relay's status as 1.
 //If RelayModule is working with LOW logic, we can activate a relay with digitalWrite(pin, LOW).
 //So, we can send the logicType(in above case LOW) to the write function to make the relay active.
-bool RelayModule::active(uint8_t relayNumber)
+bool RelayModule::activate(uint8_t relayNumber)
 {
     Relays[ relayNumber-1 ].write(logicType).setStatus(1);
-    
+
     return Relays[ relayNumber-1 ].getStatus();
 }
 
 //Activates all the relays on the Relay Module.
-bool RelayModule::activeAll()
+bool RelayModule::activateAll()
 {
     for(uint8_t i=1; i <= channelNumber; i++)
-        if ( ! active(i) ) return false;
-    
+        if ( ! activate(i) ) return false;
+
     return true;
 }
 
@@ -24,24 +24,24 @@ bool RelayModule::activeAll()
 //Deactivates specified relay in the "Relays" and sets the relay's status as 0.
 //If RelayModule is working with LOW logic, we can deactivate a relay with digitalWrite(pin, HIGH).
 //So, we can send "the reverse of logicType(in above case HIGH)" to the write function to make the relay deactive.
-bool RelayModule::deactive(uint8_t relayNumber)
+bool RelayModule::deactivate(uint8_t relayNumber)
 {
-    
+
     uint8_t close;
-    
+
     (logicType == HIGH)? close=LOW : close=HIGH;
-    
+
     Relays[relayNumber-1].write(close).setStatus(0);
-    
+
     return ( Relays[ relayNumber-1 ].getStatus() ) ? false : true;      //  If relay's status is 0, then operation is successfull.
 }
 
 //Deactivates all the relays on the Relay Module.
-bool RelayModule::deactiveAll()
+bool RelayModule::deactivateAll()
 {
     for(uint8_t i=1; i<=channelNumber; i++)
-        if ( ! deactive(i) ) return false;
-    
+        if ( ! deactivate(i) ) return false;
+
     return true;
 }
 
@@ -59,12 +59,12 @@ bool RelayModule::deactiveAll()
 uint8_t RelayModule::getStatus(int relayNumber)
 {
     if ( relayNumber != -1 )    return Relays[ relayNumber ].getStatus();
-        
+
     uint8_t status = 0;
-    
+
     for(uint8_t i=0, digitValue = 1; i<channelNumber; i++, digitValue *= 2)
         status += (Relays[i].getStatus() * digitValue);
-    
+
     return status;
 }
 

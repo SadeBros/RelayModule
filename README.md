@@ -95,44 +95,18 @@ If we have those connections, we need to set the Relay Module's pins as:<br>
 <a name="title3sub3"></a>
 ### 3.3 All Functions of RelayModule
 
-<table>
-    <tr>
-        <th width=30%><b>Functions</b></th>
-        <th width=40%><b>Explanation</b></th>
-        <th><b>Example</b></th>
-    </tr>
-    <tr>
-        <td> module( channelNumber, logic ); </td>
-        <td> Initiates the relay module. </td>
-        <td> module( 4 , LOW );<br> It is 4 channel relay module which is working with LOW logic. </td>
-    </tr>
-    <tr>
-        <td> module.active( relayNumber ); </td>
-        <td> Activates the relay.</td>
-        <td> module.active(3);<br>Activates the third relay. </td>
-    </tr>
-    <tr>
-        <td> module.activeAll(); </td>
-        <td> Activates all relays on the Relay Module.</td>
-    </tr>
-    <tr>
-        <td> module.deactive( relayNumber ); </td>
-        <td> Deactivates the relay.</td>
-        <td> module.deactive(1);<br>Deactivates the first relay. </td>
-    </tr>
-    <tr>
-        <td> module.deactiveAll(); </td>
-        <td> Deactivates all relays on the Relay Module. </td>
-    </tr>
-    <tr>
-        <td> module.getStatus(); </td>
-        <td> Returns the status of relays as integer. </td>
-        <td> Status: 7 <br> 7 = 0 + 4 + 2 + 1 <br> Specifies that Relay 1,2, 3 are active and Relay4 is deactive. </td>
-    </tr>
-    
-</table>
-<a name="title4"></a>
+| Functions             | Example           | Explanation  |
+|---------------------|:---------------------:| -----------:|
+| ` module( channelNumber, logic ); `        |    RelayModule module( 4, LOW );         |     It is 4 channel relay module which is working with LOW logic. |  
+| ` module.activate( relayNumber ); `          |    module.activate( 1 ) ;                        |     Activates the first relay.  | 
+| ` module.activateAll(); `                               |    module.activateAll();                         |     Activates all relays on the Relay Module.  |
+| ` module.deactivate( relayNumber ); `      |    module.deactivate( 1 ) ;                    |     Deactivates the first relay.  |
+| ` module.deactivateAll(); `                           |    module.deactivateAll( ) ;                   |     Deactivates all relays on the Relay Module. |
+|` module.getStatus(); `                                    |    module.getStatus( ) ;                        |     Status: 7 <br> 7 = 0 + 4 + 2 + 1 <br> Specifies that Relay 1,2, 3 are active and Relay4 is deactive.  |
+|` module[ relayNumber ].getStatus(); `     |    module[ 1 ].getStatus( ) ;                  |     Returns the status of first relay as integer.  |
 
+
+<a name="title4"></a>
 ## 4. Talk Is Cheap, Show Me The Code
 ![RelayModuleExample](Photos/Talk_Is_Cheap_Show_Me_The_Code.png)
 <br><br><br>

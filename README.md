@@ -97,13 +97,13 @@ If we have those connections, we need to set the Relay Module's pins as:<br>
 
 | Functions  &nbsp; &nbsp; &nbsp;  | Example  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Explanation  |
 |--------------------------------------- | :---------------------: | :-----------:    |
-| ` module(channelNumber, logic);`          |    RelayModule module( 4, LOW );           |     It is **4 channel relay module** which is working with **LOW logic**. |  
+| ` module(channelNumber, logic);`          |    RelayModule module(4,LOW);           |     It is **4 channel relay module** which is working with **LOW logic**. |  
 | ` module.activate(relayNumber);`          |    module.activate( 1 ) ;                             |     Activates the **first relay (IN1)**.  | 
 | ` module.activateAll();`                               |    module.activateAll();                         |     Activates all relays on the Relay Module.  |
 | ` module.deactivate(relayNumber);`      |    module.deactivate( 4 ) ;                         |     Deactivates the **fourth relay. (IN4)**  |
 | ` module.deactivateAll();`                           |    module.deactivateAll( ) ;                   |     Deactivates all relays on the Relay Module. |
 |` module.getStatus();`                                    |    module.getStatus( ) ;                        |     Status: 7 <br> 7 = 0 + 4 + 2 + 1 <br> Specifies that Relay **1,2, 3 are active** and Relay4 is deactive.  |
-|` module[relayNumber].getStatus();`     |    module[ 3 ].getStatus( ) ;                       |     Returns the status of **third relay (IN3)** as integer.  |
+|` module[relayNumber].getStatus();`     |    module[3].getStatus( ) ;                       |     Returns the status of **third relay (IN3)** as integer.  |
 
 
 <a name="title4"></a>

@@ -95,7 +95,7 @@ If we have those connections, we need to set the Relay Module's pins as:<br>
 <a name="title3sub3"></a>
 ### 3.3 All Functions of RelayModule
 
-| Functions  &nbsp; &nbsp; &nbsp; | Example  &nbsp; &nbsp;  | Explanation  |
+| Functions  &nbsp; &nbsp; &nbsp; &nbsp; | Example  &nbsp; &nbsp; &nbsp; | Explanation  |
 |--------------------------------------- | :---------------------: | :-----------:    |
 | ` module( channelNumber, logic ); `          |    RelayModule module( 4, LOW );         |     It is 4 channel relay module which is working with LOW logic. |  
 | ` module.activate( relayNumber ); `          |    module.activate( 1 ) ;                        |     Activates the first relay.  | 
